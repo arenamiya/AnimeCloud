@@ -1,0 +1,33 @@
+{% extends "page.html" %}
+
+{% block body %}
+<div class="col-md-7 container-md">
+  <div class="login">
+    <h2>New Anime</h2>
+    <hr>
+    <form class="loginForm" action="#" method="post" enctype="multipart/form-data">
+      <input class="field form-control" type="text" align="center" name="animeName" placeholder="Anime Name" required><br>
+      <input class="field form-control" type="text" align="center" name="episodes" placeholder="No of Episodes" required><br>
+      <input class="field form-control" type="text" align="center" name="genre" placeholder="Genres (separated by comma)" required><br>
+      <input class="field form-control" type="file" name="uploadedimage" accept="image/*" required><br>
+      <input type="submit" class="signin btn btn-primary" name="create" value="create">
+      </form>
+
+    {% if successful %}
+    <div class="alert alert-success" align="center" role="alert">
+    Succesfully uploaded
+    </div>
+      {% endif %}
+    {% if exists %}
+    <div class="alert alert-warning" align="center" role="alert">
+    Anime already exists.
+    </div>
+      {% endif %}  
+
+    </div>
+
+
+  </div>
+{% endblock %}
+
+

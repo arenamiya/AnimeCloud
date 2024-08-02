@@ -1,0 +1,26 @@
+{% extends "page.html" %}
+
+{% block body %}
+
+
+<div class="col-md-7 container-md" id="animelist">
+    <h1>Top Rated Anime</h1>
+    <hr class="rounded" id="round">
+    <div class="container">
+    {% for i in range(0, length) %}
+    <div class="row">      
+        <span class="col-lg-5" id="imageSpan"><img id="image" src="{{ top[i]["url"] }}" height="300px" alt="userimage"></span> 
+        <span class="col">
+          <span id="animetitle"><h4>{{ i+1 }} |  {{ top[i]["name"] }} </h4></span>
+          <span id="animetitle"><p><b>Rating:</b> {{ top[i]["rating"] }}/5.0</p></span>
+          <span id="animetitle"><p><b>Genre:</b> {{ top[i]["genre"] }}</p></span>
+          <span id="animetitle"><p><b>Episodes:</b> {{ top[i]["episodes"] }}</p></span>
+          </span>
+          
+        </div>
+        <hr class="rounded" id="round">
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

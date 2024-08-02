@@ -1,0 +1,175 @@
+html {
+  min-height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #84678f;
+}
+
+.navbar {
+  display: inline-block;
+  margin: 0;
+  padding: 10px;
+  width: 100%; 
+  background-color: rgb(110, 110, 110);
+}
+
+.alert {
+  margin-top:20px;
+}
+
+.navbar a {
+  display: inline;
+  float: left;
+  color: #f2f2f2;
+  margin-bottom: 0;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 16px 20px;
+  background-color: rgb(128, 23, 23);
+}
+
+.navbar a:hover {
+  color: black;
+}
+
+.navbar a.active {
+
+  color: white;
+}
+.logout{
+  display:inline;
+  float:right;
+}
+
+#image {
+  width:120px;
+  height:120px;
+  margin:30px;
+}
+
+#animelist {
+  background-color: #cfcfcf;
+  width: 900px;
+  margin: 4em auto;
+  border-radius: 1em;
+}
+
+#animedesc {
+  display:block;
+  padding:50px;
+}
+
+
+#imageSpan {
+  display:inline;
+  float:left;
+
+}
+
+#animetitle {
+  display:inline;
+  
+}
+
+span h4 {
+  margin:0;
+}
+
+
+.user {
+  display:inline-block;
+  margin: 0;
+  padding: 20px;
+  width: 100%; 
+  font-size:25px;
+  background-color: rgb(255, 255, 255);
+}
+
+.login {
+    background-color: #ffffff;
+    width: 400px;
+    height: 500px;
+    margin: 3em auto;
+    border-radius: 1em;
+}
+
+.register {
+  background-color: #ffffff;
+  width: 400px;
+  height: 550px;
+  margin: 3em auto;
+  border-radius: 1em;
+}
+
+#search {
+  background-color: #ffffff;
+  width: 400px;
+  height: 350px;
+  margin: 7em auto;
+  padding: 40px;
+  border-radius: 1em;
+}
+
+h1{
+  margin: 0;
+}
+
+.pageTitle {
+  padding:10px;
+  background-color: #ccbcbc;
+  text-align: center;
+}
+.logins {
+  text-align: center;
+}
+
+.facebook {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.twitter {
+  display: inline-block;
+  margin: 0 auto;
+}
+.title {
+    padding-top: 30px;
+    color: #000000;
+    font-size: 30px;
+
+}
+
+.title2 {
+  padding-top: 30px;
+  color: #000000;
+  font-size: 25px;
+
+}
+
+
+
+.field:focus {
+    border: 1px solid rgba(0, 0, 0, 0.18) !important; 
+}
+
+.field {
+  width: 76%;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  margin-left: 46px;
+}
+
+.signin {
+    margin-left: 43%;
+}
+
+.forgot {
+    padding-top: 15px;
+}
+

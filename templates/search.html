@@ -1,0 +1,72 @@
+{% extends "page.html" %}
+
+{% block body %}
+
+
+<div class="row m-0">
+ <div class="col-md-3" id="search">
+      <h2>Search</h2>
+      <hr class="rounded" id="round">
+      <form action="{{ url_for('searching') }}" method="post" >
+    <div class="input-group mb-3">
+      <input class="field form-control" type="text" align="center" name="title" placeholder="Title" required>
+      <input type="submit"  class="btn btn-primary"  name="submit" value="Search">
+    </div>
+    </form>
+
+    {% if invalidResults %}
+    <div class="alert alert-danger" role="alert">
+    No results
+    </div>
+    {% endif %}
+    {% if short %}
+    <div class="alert alert-warning" role="alert">
+    Please enter more than 3 or more letters
+    </div>
+    {% endif %}
+  </div>
+
+
+
+
+  <div class="col-md-7" id="animelist">
+    <h2>Results</h2>
+      <hr class="rounded" id="round">
+      <div class="container">
+      {% for anime in results %}
+      <div class="row">      
+      <span class="col-lg-5" id="imageSpan">
+        <img id="image" src="{{ anime["url"] }}" height="300px" alt="userimage">
+      </span> 
+      <span class="col">
+        <span id="animetitle"><h4> {{ anime["name"] }} </h4></span>
+        <span id="animetitle"><p><b>Rating:</b> {{ anime["rating"] }}/5.0</p></span>
+        <span id="animetitle"><p><b>Genre:</b> {{ anime["genre"] }}</p></span>
+        <span id="animetitle"><p><b>Episodes:</b> {{ anime["episodes"] }}</p></span>
+        
+        <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+       {% if session["email"] %}
+      <form action="{{ url_for('rating') }}" method="post" >
+        <input type="hidden"  name="id" value="{{ anime["anime_id"] }}">
+        <input type="range" class="form-range" name="rate" min="1" max="5">
+        <input type="submit" name="submit" class="btn btn-primary" value="Rate">
+        </form><br>
+  
+       
+        <form action="{{ url_for('favorite') }}" method="post" >
+          <input type="hidden"  name="id" value="{{ anime["anime_id"] }}">
+          <input type="submit" name="submit" class="btn btn-primary"  value="Favorite">
+        </form>
+        {% endif %}
+      </div>
+      </span>
+      
+      </div>
+      <hr class="rounded" id="round">
+      {% endfor %}
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

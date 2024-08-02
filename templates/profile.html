@@ -1,0 +1,56 @@
+{% extends "page.html" %}
+
+{% block body %}
+
+{% if session["username"] %}
+
+
+<div class="row m-0">
+ <div class="col-md-3" id="search">
+
+  <h2>Profile</h2>
+  
+  <hr class="rounded" id="round">
+  <b>Username: </b>{{ session["username"] }}<br>
+  <b>Email: </b> {{ session["email"] }}<br><br>
+  {% if type == "email" %}
+  <section id="password_edit">
+
+    <b>Change Password:</b>
+    <form method="POST" name="pwEdit">
+        <input class="form-control" type="password" name="old" id="old" placeholder="Old Password" required>
+        <input class="form-control" type="password" name="new" id="new" placeholder="New Password" required>
+        <input class="btn btn-primary mb-3" type="submit" name="changePW" value="Change">
+    </form>
+    {{ message }}
+  </section>
+  {% endif %}
+</div>
+
+<div class="col-md-7" id="animelist">
+  <h2>Favorites</h2>
+  <hr class="rounded" id="round">
+  <div class="container">
+  {% for anime in favorites %}
+  <div class="row">      
+  <span class="col-lg-5" id="imageSpan"><img id="image" src="{{ anime["url"] }}" height="300px" alt="userimage"></span> 
+  <span class="col">
+    <span id="animetitle"><h4> {{ anime["name"] }} </h4></span>
+    <span id="animetitle"><p><b>Rating:</b> {{ anime["rating"] }}/5.0</p></span>
+    <span id="animetitle"><p><b>Genre:</b> {{ anime["genre"] }}</p></span>
+    <span id="animetitle"><p><b>Episodes:</b> {{ anime["episodes"] }}</p></span>
+    </span>
+    
+  </div>
+  <hr class="rounded" id="round">
+  {% endfor %}
+  </div>
+</div>
+</div>
+{% else %}
+  Please log in to view this page.
+{% endif %}
+
+
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "page.html" %}
+
+{% block body %}
+<div class="col-md-7 container-md">
+  <div class="login">
+    <h2>Login</h2>
+    <hr>
+    <form class="loginForm" action="#" method="post">
+      <input class="field form-control" type="text" align="center" name="email" placeholder="Email" required><br>
+      <input class="field form-control" type="password" align="center" name="password" placeholder="Password" required><br>
+      <input type="submit" class="signin btn btn-primary" name="login" value="Login">
+      <a  href="{{ url_for('forgotpassword') }}">Forgot Password?</a>
+       </form>
+       <div class="logins input-group flex-nowrap justify-content-center">
+       <div class="twitter">
+       <a href="{{ url_for('twitter_login') }}"><button class='btn btn-primary'>Login with Twitter</button></a>
+       </div> 
+       <div class="facebook">
+       <a href="{{ url_for('google_login') }}"><button class='btn btn-danger'>Login with Google</button></a>
+       </div>
+        </div>
+    {% if invalid %}
+    <div class="alert alert-warning" align="center" role="alert">
+    Email or password is invalid
+    </div>
+      {% endif %}
+
+    {% if success %} 
+      <div class="alert alert-success " align="center" role="alert">
+    Success, Please verify via email to login.
+    </div>
+    {% endif %}
+      {% if passwordSuccess %} 
+      <div class="alert alert-success " align="center" role="alert">
+    Successfully changed password, please login.
+    </div>
+    {% endif %}
+    {% if verified %} 
+      <div class="alert alert-success " align="center" role="alert">
+    Verification successful, please login.
+    </div>
+    {% endif %}
+    {% if verifiedNot %}
+    <div class="alert alert-warning " align="center" role="alert">
+    Please verify account.
+    </div>
+    {% endif %}
+
+    {% if expired %}
+    <div class="alert alert-warning " align="center" role="alert">
+    Token has expired, Sign up again.
+    </div>
+    {% endif %}
+                
+    </div>
+
+
+  </div>
+{% endblock %}
+
+

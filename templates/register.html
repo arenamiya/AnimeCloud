@@ -1,0 +1,45 @@
+{% extends "page.html" %}
+
+{% block body %}
+<div class="col-md-7 container-md">
+
+  <div class="register">
+    <h2>Register</h2>
+    <hr class="rounded">
+    <form class="loginForm" action="#" method="post">
+      <input class="field form-control " type="email" align="center" name="email" placeholder="Email" required><br>
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping">@</span>
+        <input class="field  form-control" type="text" align="center" name="username" placeholder="Username" required>
+      </div><br>
+      
+      <input class="field form-control" type="password" align="center" name="password" placeholder="Password" required><br>
+     <input class="field form-control" type="password" align="center" name="confirmPassword" placeholder="Confirm Password" required><br>
+      <input type="submit" class="signin btn btn-primary mb-3" name="signup" value="Register">
+            </form>
+{% if emailexists %} 
+      <div class="alert alert-danger" align="center" role="alert">
+    Email Exists
+    </div>
+{% endif %} 
+{% if userExists %} 
+      <div class="alert alert-danger" align="center" role="alert">
+    Username already exists
+    </div>
+{% endif %}
+{% if invalidUsername %} 
+      <div class="alert alert-danger" align="center" role="alert">
+    Invalid Username
+    </div>
+{% endif %}      
+
+{% if passwordsNoMatch %} 
+      <div class="alert alert-warning" align="center" role="alert">
+    Passwords don't match
+    </div>
+{% endif %}    
+    </div>
+  </div>
+{% endblock %}
+
+
